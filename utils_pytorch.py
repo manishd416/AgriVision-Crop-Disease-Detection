@@ -38,7 +38,7 @@ def load_model(model_path="model/agrivision_model.pth"):
     model.eval()
     return model
 
-def predict_disease(model, uploaded_file):
+def predict_disease(model, uploaded_file, return_all=False):
     """Predict disease from uploaded file."""
     image = Image.open(uploaded_file).convert('RGB')
     image_tensor = transform(image).unsqueeze(0)
@@ -49,7 +49,11 @@ def predict_disease(model, uploaded_file):
         confidence, predicted_idx = torch.max(probabilities, 1)
 
     predicted_class = CLASS_NAMES[predicted_idx.item()]
-    return predicted_class, confidence.item()
+    
+    if return_all:
+        return predicted_class, confidence.item(), probabilities[0].numpy()
+    else:
+        return predicted_class, confidence.item()
 
 def get_disease_info(disease_name):
     if disease_name in DISEASE_INFO:

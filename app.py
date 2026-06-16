@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 from PIL import Image
 from utils_pytorch import load_model, predict_disease, get_disease_info
 
@@ -29,17 +30,22 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    #     # Analyze button
+    # Analyze button
     if st.button("🔍 Analyze Image"):
         with st.spinner("Analyzing..."):
-            predicted_class, confidence = predict_disease(model, uploaded_file)
+            predicted_class, confidence, all_probs = predict_disease(model, uploaded_file, return_all=True)
+            
+            # Get top 2 predictions
+            top2 = np.argsort(all_probs)[-2:]
+            gap = all_probs[top2[1]] - all_probs[top2[0]]
+            
+            # Block if top-2 are too close (model is confused)
+            if confidence < 0.75 or gap < 0.15:
+                st.error(f"❌ Unable to classify confidently (Confidence: {confidence*100:.1f}%)")
+                st.warning("This image may not be a Corn, Potato, or Tomato leaf. Please upload a clear leaf image of these crops only.")
+                st.stop()
+            
             info = get_disease_info(predicted_class)
-
-            # ⚠️ Low confidence check - STRONGER
-            if confidence < 0.60:
-                st.error(f"❌ Unable to classify (Confidence: {confidence*100:.1f}%)")
-                st.warning("This image does not appear to be a Corn, Potato, or Tomato leaf. Please upload a clear leaf image of these crops only.")
-                st.stop()  # Stop here, don't show fake results
             
             # Format disease name for display
             display_name = predicted_class.replace('___', ' - ')
