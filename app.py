@@ -35,8 +35,9 @@ if uploaded_file is not None:
             predicted_class, confidence = predict_disease(model, uploaded_file)
             info = get_disease_info(predicted_class)
 
-            # Display results
-            st.success("Analysis Complete!")
+            # ⚠️ Low confidence check
+            if confidence < 0.50:
+                st.warning(f"⚠️ Low confidence ({confidence*100:.1f}%). This image may not be a Corn, Potato, or Tomato leaf. Please upload a valid crop leaf image for accurate results.")
             
             # Format disease name for display
             display_name = predicted_class.replace('___', ' - ')
@@ -45,7 +46,7 @@ if uploaded_file is not None:
             st.markdown(f"### 📊 Confidence: **{confidence*100:.2f}%**")
             
             # Progress bar for confidence
-            st.progress(confidence)
+            st.progress(min(confidence, 1.0))
             
             st.markdown("---")
             st.subheader("📖 Disease Information")
