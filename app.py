@@ -1,4 +1,35 @@
-    # Analyze button
+import streamlit as st
+from PIL import Image
+from utils_pytorch import load_model, predict_disease, get_disease_info
+
+# App config
+st.set_page_config(page_title="AgriVision AI", page_icon="🌿", layout="centered")
+
+st.title("🌿 AgriVision AI")
+st.markdown("### Intelligent Crop Disease Detection & Treatment Recommendation")
+st.write("Upload a crop leaf image to identify the disease and get a treatment plan.")
+
+# Load model (cached)
+@st.cache_resource
+def load_model_cached():
+    return load_model("model/agrivision_model.pth")
+
+try:
+    model = load_model_cached()
+    st.success("✅ Model loaded successfully!")
+except Exception as e:
+    st.error(f"❌ Error loading model: {e}")
+    st.stop()
+
+# File uploader
+uploaded_file = st.file_uploader("Choose a leaf image...", type=["jpg", "jpeg", "png"])
+
+if uploaded_file is not None:
+    # Display image
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    #     # Analyze button
     if st.button("🔍 Analyze Image"):
         with st.spinner("Analyzing..."):
             predicted_class, confidence = predict_disease(model, uploaded_file)
