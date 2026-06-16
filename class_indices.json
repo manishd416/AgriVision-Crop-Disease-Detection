@@ -1,0 +1,24 @@
+{
+  "class_indices": {
+    "Corn_(maize)___Common_rust_": 0,
+    "Corn_(maize)___Northern_Leaf_Blight": 1,
+    "Corn_(maize)___healthy": 2,
+    "Potato___Early_blight": 3,
+    "Potato___Late_blight": 4,
+    "Potato___healthy": 5,
+    "Tomato___Early_blight": 6,
+    "Tomato___Late_blight": 7,
+    "Tomato___healthy": 8
+  },
+  "class_names": [
+    "Corn_(maize)___Common_rust_",
+    "Corn_(maize)___Northern_Leaf_Blight",
+    "Corn_(maize)___healthy",
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___healthy"
+  ]
+}
