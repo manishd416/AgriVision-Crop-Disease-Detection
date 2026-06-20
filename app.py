@@ -17,32 +17,60 @@ st.set_page_config(
     page_title="AgriVision AI - Crop Disease Detection",
     page_icon="🌿",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items={
+        "Get help": None,
+        "Report a bug": None,
+        "About": None
+    }
 )
 
-# Premium custom CSS styling
+# Premium custom CSS styling - simplified and robust for both themes
 custom_css = """
 <style>
-    /* Root color variables */
-    :root {
-        --primary-color: #2E7D32;
-        --bg-light: #F8F9FA;
-        --bg-subtle: #F5F6F8;
-        --white: #FFFFFF;
-        --text-dark: #1A1A1A;
-        --text-light: #666666;
-        --border-color: #E0E0E0;
-        --success-color: #43A047;
-        --warning-color: #FB8C00;
-        --error-color: #E53935;
+    /* Universal base styles */
+    * {
+        --primary-green: #2E7D32;
+        --light-bg: #F8F9FA;
+        --dark-text: #1A1A1A;
     }
 
-    /* Main background */
-    .main {
+    /* Ensure readable text everywhere */
+    body, .main, .stApp {
         background-color: #F8F9FA;
     }
 
-    /* Container styling - subtle backgrounds */
+    /* Force text readability */
+    h1, h2, h3, h4, h5, h6 {
+        color: #1A1A1A !important;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    p, span, div, li, a, label {
+        color: #333333 !important;
+    }
+
+    .stMarkdown {
+        color: #1A1A1A !important;
+    }
+
+    .stMarkdown p {
+        color: #333333 !important;
+    }
+
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #1A1A1A !important;
+    }
+
+    /* Header styling */
+    h1 {
+        border-bottom: 3px solid #2E7D32;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+    }
+
+    /* Container styling */
     .stContainer {
         background-color: transparent;
         padding: 20px;
@@ -50,32 +78,59 @@ custom_css = """
         margin-bottom: 16px;
     }
 
-    /* Premium card styling */
+    /* Premium card */
     .premium-card {
-        background: rgba(46, 125, 50, 0.04);
+        background: rgba(46, 125, 50, 0.08);
         padding: 20px;
         border-radius: 10px;
         border-left: 4px solid #2E7D32;
         border-top: 1px solid rgba(46, 125, 50, 0.1);
-        border-right: 1px solid rgba(46, 125, 50, 0.05);
-        border-bottom: 1px solid rgba(46, 125, 50, 0.05);
         margin-bottom: 16px;
-    }
-
-    /* Header styling */
-    h1, h2, h3 {
         color: #1A1A1A;
+    }
+
+    .premium-card h2, .premium-card p {
+        color: #1A1A1A !important;
+    }
+
+    /* Sidebar sections */
+    .sidebar-section {
+        background-color: rgba(46, 125, 50, 0.1);
+        padding: 16px;
+        border-radius: 10px;
+        margin-bottom: 16px;
+        border-left: 4px solid #2E7D32;
+        border-top: 1px solid rgba(46, 125, 50, 0.1);
+    }
+
+    .sidebar-section p, .sidebar-section strong, .sidebar-section span {
+        color: #1A1A1A !important;
+        font-weight: 500;
+    }
+
+    .sidebar-title {
+        color: #2E7D32 !important;
         font-weight: 700;
-        letter-spacing: -0.5px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
     }
 
-    h1 {
-        border-bottom: 3px solid #2E7D32;
-        padding-bottom: 12px;
-        margin-bottom: 24px;
+    /* Info box */
+    .info-box {
+        background-color: rgba(46, 125, 50, 0.08);
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 3px solid #2E7D32;
+        color: #1A1A1A !important;
     }
 
-    /* Tab styling */
+    .info-box p, .info-box strong {
+        color: #1A1A1A !important;
+    }
+
+    /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
         gap: 0;
         background-color: transparent;
@@ -95,20 +150,26 @@ custom_css = """
 
     .stTabs [aria-selected="true"] {
         background-color: transparent;
-        color: #2E7D32;
+        color: #2E7D32 !important;
         border-bottom-color: #2E7D32;
     }
 
-    /* Tab content background */
     .stTabs [data-baseweb="tab-panel"] {
-        background-color: rgba(46, 125, 50, 0.02);
+        background-color: rgba(46, 125, 50, 0.04);
         padding: 24px;
         border-radius: 8px;
         margin-top: 8px;
-        color: #FFFFFF;
     }
 
-    /* Button styling */
+    .stTabs [data-baseweb="tab-panel"] p,
+    .stTabs [data-baseweb="tab-panel"] h3,
+    .stTabs [data-baseweb="tab-panel"] li,
+    .stTabs [data-baseweb="tab-panel"] strong,
+    .stTabs [data-baseweb="tab-panel"] span {
+        color: #1A1A1A !important;
+    }
+
+    /* Buttons */
     .stButton > button {
         background-color: #2E7D32;
         color: white;
@@ -128,7 +189,7 @@ custom_css = """
         box-shadow: 0 4px 16px rgba(46, 125, 50, 0.25);
     }
 
-    /* File uploader styling */
+    /* File uploader */
     .stFileUploader {
         border: 2px dashed #2E7D32;
         border-radius: 10px;
@@ -136,17 +197,29 @@ custom_css = """
         background-color: rgba(46, 125, 50, 0.03);
     }
 
-    /* Alert/Info box styling */
+    /* Alerts */
     .stAlert {
         border-radius: 10px;
         border-left: 4px solid;
-        background-color: rgba(0, 0, 0, 0.02);
     }
 
-    /* Metric styling */
+    .stAlert p, .stAlert strong, .stAlert span {
+        color: #1A1A1A !important;
+    }
+
+    /* Success/Warning/Error/Info boxes */
+    .stSuccess, .stWarning, .stError, .stInfo {
+        color: #1A1A1A !important;
+    }
+
+    .stSuccess p, .stWarning p, .stError p, .stInfo p {
+        color: #1A1A1A !important;
+    }
+
+    /* Metric box */
     .metric-box {
         background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
-        color: white;
+        color: white !important;
         padding: 24px;
         border-radius: 10px;
         text-align: center;
@@ -154,61 +227,48 @@ custom_css = """
         box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
     }
 
-    .metric-label {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        opacity: 0.95;
+    .metric-label, .metric-value {
+        color: white !important;
     }
 
-    .metric-value {
-        font-size: 36px;
-        font-weight: 700;
-        margin-top: 8px;
-    }
-
-    /* Sidebar styling */
-    .sidebar-section {
-        background-color: rgba(46, 125, 50, 0.05);
-        padding: 16px;
-        border-radius: 10px;
-        margin-bottom: 16px;
-        border-left: 4px solid #2E7D32;
-        border-top: 1px solid rgba(46, 125, 50, 0.1);
-    }
-
-    .sidebar-title {
-        color: #2E7D32;
-        font-weight: 700;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 10px;
-    }
-
-    /* Progress bar styling */
+    /* Progress bar */
     .stProgress > div > div > div {
         background-color: #2E7D32;
     }
 
-    /* Section headers */
-    .section-header {
-        color: #2E7D32;
-        font-weight: 700;
-        font-size: 16px;
-        margin-bottom: 16px;
-        padding-bottom: 8px;
-        border-bottom: 2px solid rgba(46, 125, 50, 0.2);
+    /* Prediction ranks */
+    .prediction-rank {
+        color: #1A1A1A !important;
     }
 
-    /* Info box styling */
-    .info-box {
-        background-color: rgba(46, 125, 50, 0.04);
-        padding: 16px;
-        border-radius: 8px;
-        border-left: 3px solid #2E7D32;
-        color: #FFFFFF;
+    /* Code blocks */
+    code {
+        color: #1A1A1A !important;
+        background-color: rgba(46, 125, 50, 0.05);
+        padding: 2px 6px;
+        border-radius: 3px;
+    }
+
+    /* Lists */
+    ul, ol {
+        margin: 10px 0;
+    }
+
+    li {
+        color: #1A1A1A !important;
+        margin: 5px 0;
+        line-height: 1.6;
+    }
+
+    /* Divider */
+    hr, .stDivider {
+        border-color: #E0E0E0;
+    }
+
+    /* Placeholder/muted text */
+    .placeholder-text {
+        color: #999999;
+        opacity: 0.7;
     }
 </style>
 """
@@ -223,7 +283,7 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-section">
         <div class="sidebar-title">📍 Project Information</div>
-        <p style="font-size: 13px; color: #FFFFFF; line-height: 1.5; margin: 0;">
+        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>AgriVision AI</strong><br>
             Advanced Crop Disease Detection
         </p>
@@ -233,7 +293,7 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-section">
         <div class="sidebar-title">🎓 Internship Details</div>
-        <p style="font-size: 13px; color: #FFFFFF; line-height: 1.5; margin: 0;">
+        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>APSSDC Summer Internship</strong><br>
             Agricultural ML Application
         </p>
@@ -243,11 +303,11 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-section">
         <div class="sidebar-title">🔬 Model Architecture</div>
-        <p style="font-size: 13px; color: #FFFFFF; line-height: 1.5; margin: 0;">
+        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>Framework:</strong> PyTorch<br>
             <strong>Base Model:</strong> EfficientNet-B0<br>
             <strong>Input Size:</strong> 224 × 224px<br>
-            <strong>Output Classes:</strong> 38 diseases
+            <strong>Output Classes:</strong> 9 diseases
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -255,11 +315,11 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-section">
         <div class="sidebar-title">📊 Dataset Metrics</div>
-        <p style="font-size: 13px; color: #FFFFFF; line-height: 1.5; margin: 0;">
+        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>Source:</strong> PlantVillage Dataset<br>
             <strong>Crops Covered:</strong> Corn, Potato, Tomato<br>
-            <strong>Training Images:</strong> 2,200+<br>
-            <strong>Disease Categories:</strong> 38
+            <strong>Training Images:</strong> 9,991<br>
+            <strong>Disease Categories:</strong> 9
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -302,14 +362,20 @@ with st.sidebar:
 # MAIN PAGE HEADER
 # ─────────────────────────────────────────────────────────────────────────────
 
-st.markdown("""
-<div style="text-align: center; margin-bottom: 32px;">
-    <h1 style="font-size: 2.5em; margin-bottom: 8px;">🌿 AgriVision AI</h1>
-    <p style="font-size: 16px; color: #666; margin: 0;">
-        Professional Crop Disease Detection & Treatment Recommendation System
-    </p>
-</div>
-""", unsafe_allow_html=True)
+# ─────────────────────────────────────────────────────────────────────────────
+# MAIN PAGE HERO BANNER WITH IMAGE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HERO BANNER
+# ─────────────────────────────────────────────────────────────────────────────
+
+st.image(
+    "assets/Facebook Cover - AgriVision AI.png",
+    use_container_width=True
+)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # MODEL INITIALIZATION (CACHED)
@@ -319,11 +385,7 @@ st.markdown("""
 def load_model_cached():
     """Load and cache the PyTorch model."""
     try:
-        # PLACEHOLDER: Import your custom model initialization here
-        # Example:
-        # from custom_model import CustomModel
-        # model = CustomModel()
-        # OR use the default setup:
+        # Load the trained model from the specified path
         model = load_model("model/agrivision_model.pth")
         return model
     except Exception as e:
@@ -359,7 +421,7 @@ with col_left:
     st.markdown("### 📤 Upload & Preview")
 
     st.markdown("""
-    <div style="text-align: center; padding: 24px; color: #666; font-size: 14px; line-height: 1.6;">
+    <div style="text-align: center; padding: 24px; font-size: 14px; line-height: 1.6; color: #555;">
         Upload a clear image of a crop leaf<br>
         (Corn, Potato, or Tomato)
     </div>
@@ -381,7 +443,7 @@ with col_left:
         img_size = uploaded_file.size / (1024 * 1024)  # Convert to MB
         st.markdown(f"""
         <div class="info-box">
-            <p style="font-size: 13px; color: #FFFFFF; margin: 0; line-height: 1.6;">
+            <p style="font-size: 13px; margin: 0; line-height: 1.6;">
                 <strong>📄 File:</strong> {uploaded_file.name}<br>
                 <strong>💾 Size:</strong> {img_size:.2f} MB<br>
                 <strong>🏷️ Type:</strong> {uploaded_file.type}
@@ -390,7 +452,7 @@ with col_left:
         """, unsafe_allow_html=True)
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 48px 20px; color: #999; font-size: 13px;">
+        <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
             📸 Image preview will appear here
         </div>
         """, unsafe_allow_html=True)
@@ -407,7 +469,7 @@ with col_left:
         **Supported Crops:**
         - 🌽 Corn (Common Rust, Northern Leaf Blight, Healthy)
         - 🥔 Potato (Early Blight, Late Blight, Healthy)
-        - 🍅 Tomato (Early Blight, Late Blight, Septoria Leaf Spot, Healthy)
+        - 🍅 Tomato (Early Blight, Late Blight, Healthy)
         """)
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -419,7 +481,7 @@ with col_right:
 
     if uploaded_file is None:
         st.markdown("""
-        <div style="text-align: center; padding: 48px 20px; color: #999; font-size: 13px;">
+        <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
             ⬅️ Upload an image to begin analysis
         </div>
         """, unsafe_allow_html=True)
@@ -514,7 +576,7 @@ with col_right:
                         st.markdown(f"""
                         <div class="premium-card">
                             <h2 style="color: #2E7D32; margin: 0;">🧬 {display_name}</h2>
-                            <p style="color: #FFFFFF; margin: 8px 0 0 0; font-size: 13px;">
+                            <p style="margin: 8px 0 0 0; font-size: 13px;">
                                 Detected with {confidence*100:.2f}% confidence
                             </p>
                         </div>
@@ -587,7 +649,7 @@ with col_right:
                                 st.markdown(f"""
                                 <div style="margin-bottom: 16px;">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                        <span style="font-weight: 600; font-size: 13px; color: #FFFFFF;">{rank}. {class_name}</span>
+                                        <span class="prediction-rank" style="font-weight: 600; font-size: 13px;">{rank}. {class_name}</span>
                                         <span style="color: #2E7D32; font-weight: 600; font-size: 13px;">{prob*100:.2f}%</span>
                                     </div>
                                     <div style="background-color: rgba(46, 125, 50, 0.15); border-radius: 4px; height: 6px; overflow: hidden;">
@@ -617,7 +679,7 @@ with col_right:
 
                         # Timestamp
                         st.markdown(f"""
-                        <p style="font-size: 12px; color: #999; text-align: right; margin-top: 24px;">
+                        <p style="font-size: 12px; text-align: right; margin-top: 24px; color: #999;">
                             ✓ Analysis completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
                         </p>
                         """, unsafe_allow_html=True)
@@ -633,7 +695,7 @@ with col_right:
 st.divider()
 
 st.markdown("""
-<div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+<div style="text-align: center; padding: 20px; font-size: 12px; color: #999;">
     <p style="margin: 0;">
         <strong>AgriVision AI</strong> | APSSDC Summer Internship Project<br>
         Powered by PyTorch & Streamlit | PlantVillage Dataset
