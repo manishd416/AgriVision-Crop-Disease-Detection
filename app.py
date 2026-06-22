@@ -621,7 +621,10 @@ with col_right:
                         )
 
                         # Get disease information
-                        disease_info = get_disease_info(predicted_class)
+                        disease_info = get_disease_info(
+                            predicted_class,
+                            language
+                        )
 
                         with tab1:
                             st.markdown("### Disease Profile")
