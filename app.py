@@ -670,7 +670,7 @@ with col_right:
                         # Confidence metric box
                         st.markdown(f"""
                         <div class="metric-box">
-                            <div class="metric-label">Confidence Score</div>
+                            <div class="metric-label">{text["confidence_score"]}</div>
                             <div class="metric-value">{confidence*100:.2f}%</div>
                         </div>
                         """, unsafe_allow_html=True)
@@ -685,7 +685,7 @@ with col_right:
                         <div class="premium-card">
                             <h2 style="color: #2E7D32; margin: 0;">🧬 {display_name}</h2>
                             <p style="margin: 8px 0 0 0; font-size: 13px;">
-                                Detected with {confidence*100:.2f}% confidence
+                                {text["confidence_text"]} {confidence*100:.2f}{text["confidence_end"]}
                             </p>
                         </div>
                         """, unsafe_allow_html=True)
@@ -737,7 +737,34 @@ with col_right:
                             if "prevention" in disease_info:
                                 st.markdown(disease_info["prevention"])
                             else:
-                                st.markdown("""
+                                if language == "తెలుగు":
+                                    st.markdown("""
+                                **సాధారణ నివారణ చర్యలు:**
+
+                                - మొక్కల మధ్య సరైన దూరం ఉంచండి
+                                - వ్యాధిగ్రస్త ఆకులను వెంటనే తొలగించండి
+                                - వ్యాధి నిరోధక రకాలను ఉపయోగించండి
+                                - పంటల మార్పిడి పద్ధతి పాటించండి
+                                - ముందస్తుగా ఫంగిసైడ్లు వాడండి
+                                - వ్యవసాయ పరికరాలను శుభ్రంగా ఉంచండి
+                                - వాతావరణ పరిస్థితులను గమనించండి
+                                """)
+
+                                
+                                elif language == "हिन्दी":
+                                    st.markdown("""
+                                **सामान्य रोकथाम उपाय:**
+
+                                - पौधों के बीच उचित दूरी रखें
+                                - संक्रमित पत्तियों को तुरंत हटाएँ
+                                - रोग प्रतिरोधी किस्मों का उपयोग करें
+                                - फसल चक्र अपनाएँ
+                                - समय पर फफूंदनाशक का उपयोग करें
+                                - कृषि उपकरणों को साफ रखें
+                                - मौसम की स्थिति पर निगरानी रखें
+                                """)
+                                else:
+                                    st.markdown("""
                                 **General Prevention Practices:**
                                 - Maintain proper crop spacing for air circulation
                                 - Remove infected leaves immediately
@@ -755,7 +782,9 @@ with col_right:
                             top_n = min(5, len(CLASS_NAMES))
                             top_indices = np.argsort(all_probs)[-top_n:][::-1]
 
-                            st.markdown("**Top 5 Predictions:**")
+                            st.markdown(
+                                f"**{text['top_predictions']}:**"
+                            )
 
                             for rank, idx in enumerate(top_indices, 1):
                                 prob = all_probs[idx]
