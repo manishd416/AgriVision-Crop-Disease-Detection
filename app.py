@@ -683,10 +683,10 @@ with col_right:
 
                         # Tabbed interface for disease details
                         tab1, tab2, tab3, tab4 = st.tabs([
-                            text_lang["profile"],
-                            text_lang["treatment"],
-                            text_lang["prevention"],
-                            text_lang["analysis"]
+                            text["profile"],
+                            text["treatment"],
+                            text["prevention"],
+                            text["analysis"]
                         ])
 
                         # Get disease information
@@ -697,7 +697,7 @@ with col_right:
 
                         with tab1:
                             st.markdown(
-                                f"### {text_lang['disease_profile']}"
+                                f"### {text['disease_profile']}"
                             )
                             st.markdown(disease_info.get("description", "No description available."))
 
