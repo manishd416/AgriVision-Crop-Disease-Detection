@@ -38,7 +38,10 @@ translations = {
         "complete": "✅ Analysis Complete!",
         "profile": "📋 Profile",
         "treatment": "💊 Treatment",
-        "prevention": "🛡️ Prevention"
+        "prevention": "🛡️ Prevention",
+        "confidence_score": "Confidence Score",
+        "confidence_text": "Detected with",
+        "confidence_end": "% confidence"
     },
 
     "తెలుగు": {
@@ -50,7 +53,10 @@ translations = {
         "complete": "✅ విశ్లేషణ పూర్తైంది!",
         "profile": "📋 వివరాలు",
         "treatment": "💊 చికిత్స",
-        "prevention": "🛡️ నివారణ"
+        "prevention": "🛡️ నివారణ",
+        "confidence_score": "నమ్మక స్థాయి",
+        "confidence_text": "",
+        "confidence_end": "% నమ్మక స్థాయితో గుర్తించబడింది"
     },
 
     "हिन्दी": {
@@ -62,7 +68,10 @@ translations = {
         "complete": "✅ विश्लेषण पूर्ण!",
         "profile": "📋 विवरण",
         "treatment": "💊 उपचार",
-        "prevention": "🛡️ रोकथाम"
+        "prevention": "🛡️ रोकथाम",
+        "confidence_score": "विश्वास स्तर",
+        "confidence_text": "पहचाना गया",
+        "confidence_end": "% विश्वास के साथ"
     }
 }
 
