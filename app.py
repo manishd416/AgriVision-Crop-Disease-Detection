@@ -616,9 +616,12 @@ with col_right:
                         """, unsafe_allow_html=True)
 
                         # Tabbed interface for disease details
-                        tab1, tab2, tab3, tab4 = st.tabs(
-                            ["📋 Profile", "💊 Treatment", "🛡️ Prevention", "📊 Confidence Analysis"]
-                        )
+                        tab1, tab2, tab3, tab4 = st.tabs([
+                            text_lang["profile"],
+                            text_lang["treatment"],
+                            text_lang["prevention"],
+                            text_lang["analysis"]
+                        ])
 
                         # Get disease information
                         disease_info = get_disease_info(
@@ -627,7 +630,9 @@ with col_right:
                         )
 
                         with tab1:
-                            st.markdown("### Disease Profile")
+                            st.markdown(
+                                f"### {text_lang['disease_profile']}"
+                            )
                             st.markdown(disease_info.get("description", "No description available."))
 
                             # Additional metadata
@@ -705,8 +710,24 @@ with col_right:
                             """, unsafe_allow_html=True)
 
                         # Disclaimer
-                        st.info("""
-                        ⚠️ **Important Disclaimer**
+                        if language == "తెలుగు":
+                            st.info("""
+                        ⚠️ ముఖ్యమైన గమనిక
+
+                       ఈ AI ఆధారిత వ్యవస్థ రైతులకు సహాయం చేయడానికి రూపొందించబడింది.
+                       ఖచ్చితమైన నిర్ధారణ కోసం వ్యవసాయ నిపుణుడిని సంప్రదించండి.
+                       """)
+
+                        elif language == "हिन्दी":
+                              st.info("""
+                        ⚠️ महत्वपूर्ण सूचना
+
+                        यह AI आधारित प्रणाली किसानों की सहायता के लिए बनाई गई है।
+                        सटीक निदान के लिए कृषि विशेषज्ञ से सलाह लें।
+                        """)
+                        else:
+                           st.info("""
+                        ⚠️ Important Disclaimer
 
                         This is an AI-based classification system designed to assist agricultural professionals.
                         For accurate diagnosis and treatment recommendations, always consult a qualified agricultural
