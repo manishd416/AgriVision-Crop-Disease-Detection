@@ -588,7 +588,13 @@ with col_right:
                         """)
                     else:
                         # SUCCESS: Confidence threshold met
-                        display_name = predicted_class.replace('___', ' - ')
+                        display_name = disease_names.get(
+                            predicted_class,
+                            {}
+                        ).get(
+                            language,
+                            predicted_class.replace('___', ' - ')
+                        )
 
                         st.success(text["complete"])
 
