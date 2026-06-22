@@ -42,7 +42,8 @@ translations = {
         "confidence_score": "Confidence Score",
         "top_predictions": "Top 5 Predictions",
         "confidence_text": "Detected with",
-        "confidence_end": "% confidence"
+        "confidence_end": "% confidence",
+        "confidence_analysis": "Confidence Analysis"
         
     },
 
@@ -59,7 +60,8 @@ translations = {
         "confidence_score": "నమ్మక స్థాయి",
         "top_predictions": "టాప్ 5 అంచనాలు",
         "confidence_text": "",
-        "confidence_end": "% నమ్మక స్థాయితో గుర్తించబడింది"
+        "confidence_end": "% నమ్మక స్థాయితో గుర్తించబడింది",
+        "confidence_analysis": "నమ్మక విశ్లేషణ"
     },
 
     "हिन्दी": {
@@ -75,7 +77,8 @@ translations = {
         "confidence_score": "विश्वास स्तर",
         "top_predictions": "शीर्ष 5 भविष्यवाणियाँ",
         "confidence_text": "पहचाना गया",
-        "confidence_end": "% विश्वास के साथ"
+        "confidence_end": "% विश्वास के साथ",
+        "confidence_analysis": "विश्वास विश्लेषण"
     }
 }
 
@@ -574,18 +577,52 @@ with col_left:
 
     # Sample images guide
     with st.expander("📚 Sample Image Guide", expanded=False):
-        st.markdown("""
-        **Quality Tips:**
-        - Ensure good lighting
-        - Focus on the leaf, not the background
-        - Avoid blurry or shadowed images
-        - Include the affected area in the frame
+        if language == "తెలుగు":
+            st.markdown("""
+            **📸 నాణ్యత సూచనలు:**
+            
+            - మంచి వెలుతురు ఉండేలా చూడండి
+            - నేపథ్యంపై కాకుండా ఆకుపై దృష్టి పెట్టండి
+            - మసకబారిన లేదా నీడ ఉన్న చిత్రాలను నివారించండి
+            - వ్యాధి ప్రభావిత ప్రాంతం స్పష్టంగా కనిపించేలా చూడండి
+            
+            **🌱 మద్దతు ఉన్న పంటలు:**
+            
+            - 🌽 మొక్కజొన్న (రస్ట్ వ్యాధి, నార్తర్న్ లీఫ్ బ్లైట్, ఆరోగ్యకరం)
+            - 🥔 బంగాళాదుంప (ఎర్లీ బ్లైట్, లేట్ బ్లైట్, ఆరోగ్యకరం)
+            - 🍅 టమోటా (ఎర్లీ బ్లైట్, లేట్ బ్లైట్, ఆరోగ్యకరం)
+            """)
+        elif language == "हिन्दी":
+            st.markdown("""
+            **📸 गुणवत्ता सुझाव:**
+            
+            - अच्छी रोशनी सुनिश्चित करें
+            - पत्ती पर ध्यान केंद्रित करें, पृष्ठभूमि पर नहीं
+            - धुंधली या छायादार तस्वीरों से बचें
+            - प्रभावित क्षेत्र को स्पष्ट रूप से दिखाएँ
 
-        **Supported Crops:**
-        - 🌽 Corn (Common Rust, Northern Leaf Blight, Healthy)
-        - 🥔 Potato (Early Blight, Late Blight, Healthy)
-        - 🍅 Tomato (Early Blight, Late Blight, Healthy)
-        """)
+            **🌱 समर्थित फसलें:**
+
+            - 🌽 मक्का (कॉमन रस्ट, नॉर्दर्न लीफ ब्लाइट, स्वस्थ)
+            - 🥔 आलू (अर्ली ब्लाइट, लेट ब्लाइट, स्वस्थ)
+            - 🍅 टमाटर (अर्ली ब्लाइट, लेट ब्लाइट, स्वस्थ)
+            """)
+
+        else:
+            st.markdown("""
+            **Quality Tips:**
+            
+            - Ensure good lighting
+            - Focus on the leaf, not the background
+            - Avoid blurry or shadowed images
+            - Include the affected area in the frame
+
+            **Supported Crops:**
+            
+            - 🌽 Corn (Common Rust, Northern Leaf Blight, Healthy)
+            - 🥔 Potato (Early Blight, Late Blight, Healthy)
+            - 🍅 Tomato (Early Blight, Late Blight, Healthy)
+            """)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # RIGHT COLUMN: INFERENCE ANALYSIS
@@ -801,7 +838,13 @@ with col_right:
 
                             for rank, idx in enumerate(top_indices, 1):
                                 prob = all_probs[idx]
-                                class_name = CLASS_NAMES[idx].replace('___', ' - ')
+                                class_name = disease_names.get(
+                                    CLASS_NAMES[idx],
+                                    {}
+                                ).get(
+                                    language,
+                                    CLASS_NAMES[idx].replace('___', ' - ')
+                                )
                                 bar_width = min(prob * 100, 100)
 
                                 st.markdown(f"""
