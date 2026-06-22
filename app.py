@@ -40,8 +40,10 @@ translations = {
         "treatment": "💊 Treatment",
         "prevention": "🛡️ Prevention",
         "confidence_score": "Confidence Score",
+        "top_predictions": "Top 5 Predictions",
         "confidence_text": "Detected with",
         "confidence_end": "% confidence"
+        
     },
 
     "తెలుగు": {
@@ -55,6 +57,7 @@ translations = {
         "treatment": "💊 చికిత్స",
         "prevention": "🛡️ నివారణ",
         "confidence_score": "నమ్మక స్థాయి",
+        "top_predictions": "టాప్ 5 అంచనాలు",
         "confidence_text": "",
         "confidence_end": "% నమ్మక స్థాయితో గుర్తించబడింది"
     },
@@ -70,6 +73,7 @@ translations = {
         "treatment": "💊 उपचार",
         "prevention": "🛡️ रोकथाम",
         "confidence_score": "विश्वास स्तर",
+        "top_predictions": "शीर्ष 5 भविष्यवाणियाँ",
         "confidence_text": "पहचाना गया",
         "confidence_end": "% विश्वास के साथ"
     }
