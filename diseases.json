@@ -1,42 +1,118 @@
 {
-  "Corn_(maize)___Common_rust": {
-    "description": "Small, cinnamon-brown pustules (raised spots) on both upper and lower leaf surfaces, often arranged in bands or clusters. Thrives in warm (16-28°C), humid conditions.",
-    "treatment": "1. Plant resistant hybrids like 'Pioneer 30Y87'\n2. Apply foliar fungicides (propiconazole or azoxystrobin) at first sign\n3. Avoid late planting to escape peak disease season\n4. Ensure balanced nitrogen fertilization"
-  },
-  "Corn_(maize)___healthy": {
-    "description": "Healthy corn leaf with uniform green color, smooth texture, and no visible spots, lesions, or discoloration.",
-    "treatment": "No treatment needed. Maintain good practices:\n1. Regular field monitoring\n2. Proper irrigation scheduling\n3. Balanced NPK fertilization\n4. Weed management"
-  },
-  "Corn_(maize)___Northern_Leaf_Blight": {
-    "description": "Long, elliptical, cigar-shaped gray-green lesions (2.5-15 cm) that later turn tan/brown. Lesions may merge and blight entire leaves. Caused by Exserohilum turcicum.",
-    "treatment": "1. Plant resistant maize varieties\n2. Apply fungicides (azoxystrobin + propiconazole) at early whorl stage\n3. Practice crop rotation with non-host crops (soybean, wheat)\n4. Remove and destroy crop residue after harvest"
-  },
-  "Potato___Early_blight": {
-    "description": "Dark brown to black spots with characteristic concentric rings (target pattern) on older leaves first. Yellowing around spots, leading to leaf death. Caused by Alternaria solani.",
-    "treatment": "1. Apply fungicides: mancozeb (2.5g/L) or chlorothalonil at 7-10 day intervals\n2. Remove and destroy infected lower leaves\n3. Maintain proper plant spacing for airflow\n4. Apply balanced fertilizer (avoid nitrogen deficiency)"
-  },
-  "Potato___healthy": {
-    "description": "Healthy potato leaf with uniform green color, no spots or lesions, normal texture. Plant shows vigorous growth.",
-    "treatment": "No treatment required. Prevention tips:\n1. Use certified disease-free seed potatoes\n2. Practice 3-year crop rotation\n3. Proper hilling and irrigation management\n4. Regular field scouting every 7 days"
-  },
-  "Potato___Late_blight": {
-    "description": "Irregular water-soaked pale green spots that rapidly enlarge in cool (10-22°C), wet weather. White cottony mold on leaf undersides during humid conditions. Caused by Phytophthora infestans.",
-    "treatment": "1. Apply systemic fungicides: metalaxyl + mancozeb immediately\n2. Use protective sprays before disease appears in susceptible regions\n3. Destroy infected plants (burn/bury deep)\n4. Ensure good field drainage\n5. Avoid overhead irrigation"
-  },
-  "Tomato___Early_blight": {
-    "description": "Dark brown to black spots with concentric rings (target pattern) starting on older, lower leaves. Leaves yellow, wither, and drop. Can also affect stems and fruit. Caused by Alternaria solani.",
-    "treatment": "1. Apply chlorothalonil or mancozeb fungicides at 7-14 day intervals\n2. Remove infected lower leaves immediately\n3. Mulch around plants to reduce soil splash\n4. Stake plants for better air circulation\n5. Rotate with non-solanaceous crops for 2-3 years"
-  },
-  "Tomato___healthy": {
-    "description": "Healthy tomato leaf with vibrant green color, normal shape, no spots, lesions, or yellowing. Plant is disease-free and thriving.",
-    "treatment": "No treatment needed. Maintain health with:\n1. Regular drip irrigation (avoid wetting foliage)\n2. Balanced NPK fertilization (15-15-15)\n3. Proper spacing (60-90 cm between plants)\n4. Weekly field monitoring for early detection"
-  },
-  "Tomato___Late_blight": {
-    "description": "Pale green, irregular water-soaked spots on leaves that rapidly enlarge and turn brown/black. White fuzzy mold appears on undersides in high humidity. Can destroy entire field in 7-10 days. Caused by Phytophthora infestans.",
-    "treatment": "1. Apply systemic fungicide IMMEDIATELY: metalaxyl + mancozeb or cymoxanil + mancozeb\n2. Spray every 5-7 days during wet periods\n3. Remove and destroy all infected plants\n4. Improve greenhouse/field ventilation\n5. Use drip irrigation instead of overhead watering\n6. Plant resistant varieties if available"
-  },
-  "Unknown": {
-    "description": "No information available for this disease class.",
-    "treatment": "Please consult an agricultural expert or your local extension office for proper diagnosis and treatment recommendations."
-  }
+"Corn_(maize)___Common_rust": {
+"description": {
+"English": "Small cinnamon-brown pustules appear on corn leaves.",
+"తెలుగు": "మొక్కజొన్న ఆకులపై చిన్న గోధుమరంగు మచ్చలు కనిపిస్తాయి.",
+"हिन्दी": "मक्का की पत्तियों पर छोटे भूरे धब्बे दिखाई देते हैं।"
+},
+"treatment": {
+"English": "Use resistant hybrids and apply propiconazole.",
+"తెలుగు": "నిరోధక రకాలను ఉపయోగించి ప్రోపికోనాజోల్ పిచికారీ చేయండి.",
+"हिन्दी": "प्रतिरोधी किस्में लगाएँ और प्रोपिकोनाज़ोल का छिड़काव करें।"
+}
+},
+
+"Corn_(maize)___healthy": {
+"description": {
+"English": "Healthy corn leaf with no disease symptoms.",
+"తెలుగు": "వ్యాధి లక్షణాలు లేని ఆరోగ్యకరమైన మొక్కజొన్న ఆకు.",
+"हिन्दी": "रोग रहित स्वस्थ मक्का की पत्ती।"
+},
+"treatment": {
+"English": "No treatment required.",
+"తెలుగు": "చికిత్స అవసరం లేదు.",
+"हिन्दी": "उपचार की आवश्यकता नहीं है।"
+}
+},
+
+"Corn_(maize)___Northern_Leaf_Blight": {
+"description": {
+"English": "Long gray-green lesions appear on leaves.",
+"తెలుగు": "ఆకులపై పొడవైన బూడిదరంగు మచ్చలు కనిపిస్తాయి.",
+"हिन्दी": "पत्तियों पर लंबे धूसर धब्बे दिखाई देते हैं।"
+},
+"treatment": {
+"English": "Apply azoxystrobin and rotate crops.",
+"తెలుగు": "అజోక్సిస్ట్రోబిన్ వాడి పంటల మార్పిడి చేయండి.",
+"हिन्दी": "एज़ॉक्सीस्ट्रोबिन का उपयोग करें और फसल चक्र अपनाएँ।"
+}
+},
+
+"Potato___Early_blight": {
+"description": {
+"English": "Dark brown spots with concentric rings on leaves.",
+"తెలుగు": "ఆకులపై వలయాకార గోధుమ మచ్చలు కనిపిస్తాయి.",
+"हिन्दी": "पत्तियों पर गोल भूरे धब्बे दिखाई देते हैं।"
+},
+"treatment": {
+"English": "Apply mancozeb every 7–10 days.",
+"తెలుగు": "ప్రతి 7–10 రోజులకు మాంకోజెబ్ పిచికారీ చేయండి.",
+"हिन्दी": "हर 7–10 दिन में मैनकोज़ेब का छिड़काव करें।"
+}
+},
+
+"Potato___healthy": {
+"description": {
+"English": "Healthy potato plant with green leaves.",
+"తెలుగు": "ఆరోగ్యకరమైన బంగాళాదుంప మొక్క.",
+"हिन्दी": "स्वस्थ आलू का पौधा।"
+},
+"treatment": {
+"English": "No treatment required.",
+"తెలుగు": "చికిత్స అవసరం లేదు.",
+"हिन्दी": "उपचार की आवश्यकता नहीं है।"
+}
+},
+
+"Potato___Late_blight": {
+"description": {
+"English": "Water-soaked spots that rapidly enlarge.",
+"తెలుగు": "నీటితో తడిసినట్లు కనిపించే మచ్చలు వేగంగా పెరుగుతాయి.",
+"हिन्दी": "पानी जैसे धब्बे तेजी से फैलते हैं।"
+},
+"treatment": {
+"English": "Use metalaxyl and mancozeb immediately.",
+"తెలుగు": "మెటలాక్సిల్ మరియు మాంకోజెబ్ వెంటనే వాడండి.",
+"हिन्दी": "मेटालैक्सिल और मैनकोज़ेब का तुरंत उपयोग करें।"
+}
+},
+
+"Tomato___Early_blight": {
+"description": {
+"English": "Dark brown target-like spots on older leaves.",
+"తెలుగు": "పాత ఆకులపై గోధుమ రంగు వలయాకార మచ్చలు కనిపిస్తాయి.",
+"हिन्दी": "पुरानी पत्तियों पर गोल भूरे धब्बे दिखाई देते हैं।"
+},
+"treatment": {
+"English": "Apply chlorothalonil or mancozeb.",
+"తెలుగు": "క్లోరోథాలోనిల్ లేదా మాంకోజెబ్ పిచికారీ చేయండి.",
+"हिन्दी": "क्लोरोथालोनिल या मैनकोज़ेब का छिड़काव करें।"
+}
+},
+
+"Tomato___healthy": {
+"description": {
+"English": "Healthy tomato leaf with no disease.",
+"తెలుగు": "వ్యాధిలేని ఆరోగ్యకరమైన టమోటా ఆకు.",
+"हिन्दी": "रोग रहित स्वस्थ टमाटर की पत्ती।"
+},
+"treatment": {
+"English": "No treatment required.",
+"తెలుగు": "చికిత్స అవసరం లేదు.",
+"हिन्दी": "उपचार की आवश्यकता नहीं है।"
+}
+},
+
+"Tomato___Late_blight": {
+"description": {
+"English": "Water-soaked spots turn brown and spread rapidly.",
+"తెలుగు": "నీటితో తడిసిన మచ్చలు గోధుమ రంగులోకి మారి వేగంగా వ్యాపిస్తాయి.",
+"हिन्दी": "पानी जैसे धब्बे भूरे होकर तेजी से फैलते हैं।"
+},
+"treatment": {
+"English": "Apply metalaxyl + mancozeb immediately.",
+"తెలుగు": "మెటలాక్సిల్ + మాంకోజెబ్ వెంటనే పిచికారీ చేయండి.",
+"हिन्दी": "मेटालैक्सिल + मैनकोज़ेब का तुरंत छिड़काव करें।"
+}
+}
 }
