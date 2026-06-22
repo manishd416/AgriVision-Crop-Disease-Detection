@@ -57,7 +57,7 @@ translations = {
     }
 }
 
-text = translations[language]
+text_lang = translations[language]
 # Premium custom CSS styling - simplified and robust for both themes
 custom_css = """
 <style>
