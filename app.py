@@ -35,7 +35,10 @@ translations = {
         "reset": "🔄 Reset",
         "preview": "📤 Upload & Preview",
         "analysis": "🔬 Inference Analysis",
-        "complete": "✅ Analysis Complete!"
+        "complete": "✅ Analysis Complete!",
+        "profile": "📋 Profile",
+        "treatment": "💊 Treatment",
+        "prevention": "🛡️ Prevention"
     },
 
     "తెలుగు": {
@@ -44,7 +47,10 @@ translations = {
         "reset": "🔄 రీసెట్",
         "preview": "📤 అప్లోడ్ & ప్రివ్యూ",
         "analysis": "🔬 విశ్లేషణ",
-        "complete": "✅ విశ్లేషణ పూర్తైంది!"
+        "complete": "✅ విశ్లేషణ పూర్తైంది!",
+        "profile": "📋 వివరాలు",
+        "treatment": "💊 చికిత్స",
+        "prevention": "🛡️ నివారణ"
     },
 
     "हिन्दी": {
@@ -53,7 +59,10 @@ translations = {
         "reset": "🔄 रीसेट",
         "preview": "📤 अपलोड और पूर्वावलोकन",
         "analysis": "🔬 विश्लेषण",
-        "complete": "✅ विश्लेषण पूर्ण!"
+        "complete": "✅ विश्लेषण पूर्ण!",
+        "profile": "📋 विवरण",
+        "treatment": "💊 उपचार",
+        "prevention": "🛡️ रोकथाम"
     }
 }
 
