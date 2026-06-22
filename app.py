@@ -24,7 +24,40 @@ st.set_page_config(
         "About": None
     }
 )
+language = st.sidebar.selectbox(
+    "🌐 Language",
+    ["English", "తెలుగు", "हिन्दी"]
+)
+translations = {
+    "English": {
+        "upload": "Choose a leaf image",
+        "analyze": "🔍 Analyze Image",
+        "reset": "🔄 Reset",
+        "preview": "📤 Upload & Preview",
+        "analysis": "🔬 Inference Analysis",
+        "complete": "✅ Analysis Complete!"
+    },
 
+    "తెలుగు": {
+        "upload": "ఆకు చిత్రాన్ని ఎంచుకోండి",
+        "analyze": "🔍 విశ్లేషించండి",
+        "reset": "🔄 రీసెట్",
+        "preview": "📤 అప్లోడ్ & ప్రివ్యూ",
+        "analysis": "🔬 విశ్లేషణ",
+        "complete": "✅ విశ్లేషణ పూర్తైంది!"
+    },
+
+    "हिन्दी": {
+        "upload": "पत्ती की छवि चुनें",
+        "analyze": "🔍 विश्लेषण करें",
+        "reset": "🔄 रीसेट",
+        "preview": "📤 अपलोड और पूर्वावलोकन",
+        "analysis": "🔬 विश्लेषण",
+        "complete": "✅ विश्लेषण पूर्ण!"
+    }
+}
+
+text = translations[language]
 # Premium custom CSS styling - simplified and robust for both themes
 custom_css = """
 <style>
@@ -418,7 +451,7 @@ col_left, col_right = st.columns([1, 1.2], gap="large")
 # ─────────────────────────────────────────────────────────────────────────────
 
 with col_left:
-    st.markdown("### 📤 Upload & Preview")
+    st.markdown(f"### {text['preview']}")
 
     st.markdown("""
     <div style="text-align: center; padding: 24px; font-size: 14px; line-height: 1.6; color: #555;">
@@ -428,8 +461,8 @@ with col_left:
     """, unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader(
-        "Choose a leaf image",
-        type=["jpg", "jpeg", "png"],
+        text["upload"],
+        type=["jpg","jpeg","png"],
         help="Recommended: Clear, well-lit images at least 200×200 pixels"
     )
 
@@ -477,7 +510,7 @@ with col_left:
 # ─────────────────────────────────────────────────────────────────────────────
 
 with col_right:
-    st.markdown("### 🔬 Inference Analysis")
+    st.markdown(f"### {text['analysis']}")
 
     if uploaded_file is None:
         st.markdown("""
@@ -491,14 +524,14 @@ with col_right:
 
         with analyze_col1:
             analyze_button = st.button(
-                "🔍 Analyze Image",
+                text["analyze"],
                 use_container_width=True,
                 key="analyze_btn"
             )
 
         with analyze_col2:
             reset_button = st.button(
-                "🔄 Reset",
+                text["reset"],
                 use_container_width=True,
                 key="reset_btn"
             )
@@ -557,7 +590,7 @@ with col_right:
                         # SUCCESS: Confidence threshold met
                         display_name = predicted_class.replace('___', ' - ')
 
-                        st.success("✅ Analysis Complete!")
+                        st.success(text["complete"])
 
                         # Confidence metric box
                         st.markdown(f"""
