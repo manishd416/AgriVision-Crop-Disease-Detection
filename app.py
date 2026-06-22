@@ -706,7 +706,7 @@ with col_right:
 
                         with tab1:
                             st.markdown(
-                                f"### {text['disease_profile']}"
+                                f"### {text['profile']}"
                             )
                             st.markdown(disease_info.get("description", "No description available."))
 
