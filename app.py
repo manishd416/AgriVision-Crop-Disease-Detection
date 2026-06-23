@@ -60,7 +60,12 @@ translations = {
         "model_architecture": "MODEL ARCHITECTURE",
         "dataset_metrics": "DATASET METRICS",
         "configuration": "CONFIGURATION",
-        "confidence_threshold": "Confidence Threshold (%)"
+        "confidence_threshold": "Confidence Threshold (%)",
+        "framework": "Framework",
+        "base_model": "Base Model",
+        "input_size": "Input Size",
+        "output_classes": "Output Classes",
+        "diseases": "diseases"
     },
 
     "తెలుగు": {
