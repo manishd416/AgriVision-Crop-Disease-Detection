@@ -70,6 +70,8 @@ translations = {
         "crops_covered": "Crops Covered",
         "training_images": "Training Images",
         "disease_categories": "Disease Categories",
+        "crop_names": "Corn, Potato, Tomato",
+        "top2_gap": "Top-2 Gap Threshold"
         },
 
     "తెలుగు": {
@@ -109,7 +111,10 @@ translations = {
         "training_images": "శిక్షణ చిత్రాలు",
         "disease_categories": "వ్యాధి వర్గాలు",
         "configuration": "కాన్ఫిగరేషన్",
-        "confidence_threshold": "నమ్మక పరిమితి (%)"
+        "confidence_threshold": "నమ్మక పరిమితి (%)",
+        "diseases": "వ్యాధులు",
+        "crop_names": "మొక్కజొన్న, బంగాళాదుంప, టమోటా",
+        "top2_gap": "టాప్-2 గ్యాప్ పరిమితి"
         },
 
     "हिन्दी": {
@@ -149,7 +154,9 @@ translations = {
         "training_images": "प्रशिक्षण चित्र",
         "disease_categories": "रोग श्रेणियाँ",
         "configuration": "कॉन्फ़िगरेशन",
-        "confidence_threshold": "विश्वास सीमा (%)"
+        "confidence_threshold": "विश्वास सीमा (%)",
+        "crop_names": "मक्का, आलू, टमाटर",
+        "top2_gap": "टॉप-2 गैप सीमा"
         }
 }
 
@@ -521,7 +528,7 @@ with st.sidebar:
             <strong>{text["framework"]}:</strong> PyTorch<br>
             <strong>{text["base_model"]}:</strong> EfficientNet-B0<br>
             <strong>{text["input_size"]}:</strong> 224 × 224px<br>
-            <strong>{text["output_classes"]}:</strong> 9 diseases
+            <strong>{text["output_classes"]}:</strong> 9 {text["diseases"]}
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -531,7 +538,7 @@ with st.sidebar:
         <div class="sidebar-title">📊 {text["dataset_metrics"]}</div>
         <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>{text["source"]}:</strong> PlantVillage Dataset<br>
-            <strong>{text["crops_covered"]}:</strong> Corn, Potato, Tomato<br>
+            <strong>{text["crops_covered"]}:</strong>{text["crop_names"]}<br>
             <strong>{text["training_images"]}:</strong> 9,991<br>
             <strong>{text["disease_categories"]}:</strong> 9
         </p>
@@ -553,7 +560,7 @@ with st.sidebar:
     )
 
     gap_threshold = st.slider(
-        "Top-2 Gap Threshold",
+        text["top2_gap"],
         min_value=0.05,
         max_value=0.30,
         value=0.15,
@@ -798,9 +805,9 @@ with col_right:
     st.markdown(f"### {text['analysis']}")
 
     if uploaded_file is None:
-        st.markdown("""
+        st.markdown(f"""
         <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
-            ⬅️  Upload an image to begin analysis
+            {text["begin_analysis"]}
         </div>
         """, unsafe_allow_html=True)
     else:
