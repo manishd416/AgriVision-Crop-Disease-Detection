@@ -65,8 +65,12 @@ translations = {
         "base_model": "Base Model",
         "input_size": "Input Size",
         "output_classes": "Output Classes",
-        "diseases": "diseases"
-    },
+        "diseases": "diseases",
+        "source": "Source",
+        "crops_covered": "Crops Covered",
+        "training_images": "Training Images",
+        "disease_categories": "Disease Categories",
+        },
 
     "తెలుగు": {
         "upload": "ఆకు చిత్రాన్ని ఎంచుకోండి",
