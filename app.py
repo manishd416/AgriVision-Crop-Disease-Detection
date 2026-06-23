@@ -52,7 +52,7 @@ translations = {
         "confidence_analysis": "Confidence Analysis",
         "upload_desc": "Upload a clear image of a crop leaf",
         "supported_crops": "(Corn, Potato, or Tomato)",
-        "begin_analysis": "Upload an image to begin analysis",
+        "begin_analysis": "⬅️ Upload an image to begin analysis",
         "preview_placeholder": "Image preview will appear here",
         "sample_guide": "Sample Image Guide",
         "project_info": "PROJECT INFORMATION",
@@ -79,7 +79,7 @@ translations = {
         "upload_desc": "పంట ఆకు యొక్క స్పష్టమైన చిత్రాన్ని అప్లోడ్ చేయండి",
         "supported_crops": "(మొక్కజొన్న, బంగాళాదుంప లేదా టమోటా)",
 
-        "begin_analysis": "విశ్లేషణ ప్రారంభించడానికి చిత్రాన్ని అప్లోడ్ చేయండి",
+        "begin_analysis": "⬅️ విశ్లేషణ ప్రారంభించడానికి చిత్రాన్ని అప్లోడ్ చేయండి",
 
         "preview_placeholder": "చిత్ర ప్రివ్యూ ఇక్కడ కనిపిస్తుంది",
 
@@ -109,7 +109,7 @@ translations = {
         "upload_desc": "फसल की पत्ती की स्पष्ट छवि अपलोड करें",
         "supported_crops": "(मक्का, आलू या टमाटर)",
 
-        "begin_analysis": "विश्लेषण शुरू करने के लिए छवि अपलोड करें",
+        "begin_analysis": "⬅️ विश्लेषण शुरू करने के लिए छवि अपलोड करें",
 
         "preview_placeholder": "छवि पूर्वावलोकन यहाँ दिखाई देगा",
  
@@ -474,9 +474,9 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
+    st.markdown(f"""
     <div class="sidebar-section">
-        <div class="sidebar-title">📊 Dataset Metrics</div>
+        <div class="sidebar-title">📊 {text["dataset_metrics"]}</div>
         <p style="font-size: 13px; line-height: 1.5; margin: 0;">
             <strong>Source:</strong> PlantVillage Dataset<br>
             <strong>Crops Covered:</strong> Corn, Potato, Tomato<br>
@@ -683,7 +683,7 @@ with col_left:
         </div>
         """, unsafe_allow_html=True)
     else:
-        st.markdown("""
+        st.markdown(f"""
         <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
             📸 {text["preview_placeholder"]}
         </div>
