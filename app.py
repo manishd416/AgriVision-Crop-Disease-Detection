@@ -474,7 +474,7 @@ with st.sidebar:
 
     else:
         project_name = "AgriVision AI"
-        project_desc = "Advanced Crop Disease Detection
+        project_desc = "Advanced Crop Disease Detection"
     st.markdown(f"""
     <div class="sidebar-section">
         <div class="sidebar-title">📍 {text["project_info"]}</div>
