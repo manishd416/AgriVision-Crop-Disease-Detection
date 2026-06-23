@@ -153,7 +153,9 @@ custom_css = """
 
     /* Sidebar sections */
     .sidebar-section {
-        background-color: rgba(46, 125, 50, 0.1);
+        background-color: #FFFFFF;
+        border-left: 4px solid #2E7D32;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         padding: 16px;
         border-radius: 10px;
         margin-bottom: 16px;
