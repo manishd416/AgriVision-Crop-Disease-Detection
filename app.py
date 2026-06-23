@@ -685,12 +685,12 @@ with col_left:
     else:
         st.markdown("""
         <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
-            📸 Image preview will appear here
+            📸 {text["preview_placeholder"]}
         </div>
         """, unsafe_allow_html=True)
 
     # Sample images guide
-    with st.expander("📚 Sample Image Guide", expanded=False):
+    with st.expander(f"📚 {text['sample_guide']}", expanded=False):
         if language == "తెలుగు":
             st.markdown("""
             **📸 నాణ్యత సూచనలు:**
@@ -748,7 +748,7 @@ with col_right:
     if uploaded_file is None:
         st.markdown("""
         <div style="text-align: center; padding: 48px 20px; font-size: 13px; color: #999;">
-            ⬅️ Upload an image to begin analysis
+            ⬅️  Upload an image to begin analysis
         </div>
         """, unsafe_allow_html=True)
     else:
