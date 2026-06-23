@@ -364,6 +364,40 @@ custom_css = """
         color: #999999;
         opacity: 0.7;
     }
+
+    /* Selectbox main box */
+
+    div[data-baseweb="select"] {
+        background: white !important;
+    }
+
+    div[data-baseweb="select"] > div {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #2E7D32 !important;
+    }
+
+    /* Dropdown popup */
+
+    ul[role="listbox"] {
+        background: white !important;
+        color: black !important;
+    }
+
+    ul[role="listbox"] li {
+        background: white !important;
+        color: black !important;
+    }
+
+    /* Selected option */
+
+    [data-baseweb="popover"] {
+        background: white !important;
+    }
+
+    [data-baseweb="menu"] {
+        background: white !important;
+    }
 </style>
 """
 
