@@ -55,10 +55,18 @@ def predict_disease(model, uploaded_file, return_all=False):
     else:
         return predicted_class, confidence.item()
 
-def get_disease_info(disease_name):
-    if disease_name in DISEASE_INFO:
-        return DISEASE_INFO[disease_name]
+def get_disease_info(disease_name, language="English"):
+
+    info = DISEASE_INFO.get(disease_name, {})
+
     return {
-        "description": "No detailed information available for this disease.",
-        "treatment": "Please consult an agricultural expert for guidance."
+        "description": info.get("description", {}).get(
+            language,
+            info.get("description", {}).get("English", "")
+        ),
+
+        "treatment": info.get("treatment", {}).get(
+            language,
+            info.get("treatment", {}).get("English", "")
+        )
     }
