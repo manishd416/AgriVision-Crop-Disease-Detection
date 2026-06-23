@@ -24,10 +24,16 @@ st.set_page_config(
         "About": None
     }
 )
-language = st.sidebar.selectbox(
-    "🌐 Language",
-    ["English", "తెలుగు", "हिन्दी"]
-)
+with st.sidebar:
+    st.markdown(
+        "<p style='color:#1A1A1A;font-weight:600;'>🌐 Language</p>",
+        unsafe_allow_html=True
+    )
+
+    language = st.selectbox(
+        "",
+        ["English", "తెలుగు", "हिन्दी"]
+    )
 translations = {
     "English": {
         "upload": "Choose a leaf image",
@@ -251,10 +257,24 @@ custom_css = """
 
     /* File uploader */
     .stFileUploader {
-        border: 2px dashed #2E7D32;
-        border-radius: 10px;
-        padding: 28px;
-        background-color: rgba(46, 125, 50, 0.03);
+    background-color: #FFFFFF !important;
+    border: 2px dashed #2E7D32 !important;
+    border-radius: 10px;
+    padding: 28px;
+    }
+
+    .stFileUploader label {
+        color: #1A1A1A !important;
+    }
+
+    .stFileUploader section {
+         background-color: #FFFFFF !important;
+    }
+
+    .stFileUploader button {
+        background-color: #2E7D32 !important;
+        color: white !important;
+        border-radius: 8px !important;
     }
 
     /* Alerts */
