@@ -134,6 +134,20 @@ custom_css = """
         margin-bottom: 24px;
     }
 
+    /* Language Dropdown */
+
+    .stSelectbox > div > div {
+        background-color: #FFFFFF !important;
+        color: #1A1A1A !important;
+        border: 1px solid #2E7D32 !important;
+        border-radius: 8px !important;
+    }
+
+    .stSelectbox label {
+        color: #1A1A1A !important;
+        font-weight: 600;
+    }
+
     /* Container styling */
     .stContainer {
         background-color: transparent;
