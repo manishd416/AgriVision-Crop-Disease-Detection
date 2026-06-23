@@ -58,7 +58,9 @@ translations = {
         "project_info": "PROJECT INFORMATION",
         "internship_details": "INTERNSHIP DETAILS",
         "model_architecture": "MODEL ARCHITECTURE",
-        "dataset_metrics": "DATASET METRICS"
+        "dataset_metrics": "DATASET METRICS",
+        "configuration": "CONFIGURATION",
+        "confidence_threshold": "Confidence Threshold (%)"
     },
 
     "తెలుగు": {
@@ -88,8 +90,18 @@ translations = {
         "project_info": "ప్రాజెక్ట్ సమాచారం",
         "internship_details": "ఇంటర్న్‌షిప్ వివరాలు",
         "model_architecture": "మోడల్ నిర్మాణం",
-        "dataset_metrics": "డేటాసెట్ వివరాలు"  
-    },
+        "dataset_metrics": "డేటాసెట్ వివరాలు" ,
+        "framework": "ఫ్రేమ్‌వర్క్",
+        "base_model": "బేస్ మోడల్",
+        "input_size": "ఇన్‌పుట్ పరిమాణం",
+        "output_classes": "అవుట్‌పుట్ తరగతులు",
+        "source": "మూలం",
+        "crops_covered": "మద్దతు ఉన్న పంటలు",
+        "training_images": "శిక్షణ చిత్రాలు",
+        "disease_categories": "వ్యాధి వర్గాలు",
+        "configuration": "కాన్ఫిగరేషన్",
+        "confidence_threshold": "నమ్మక పరిమితి (%)"
+        },
 
     "हिन्दी": {
         "upload": "पत्ती की छवि चुनें",
@@ -118,8 +130,18 @@ translations = {
         "project_info": "परियोजना जानकारी",
         "internship_details": "इंटर्नशिप विवरण",
         "model_architecture": "मॉडल संरचना",
-        "dataset_metrics": "डेटासेट विवरण"
-    }
+        "dataset_metrics": "डेटासेट विवरण",
+        "framework": "फ्रेमवर्क",
+        "base_model": "बेस मॉडल",
+        "input_size": "इनपुट आकार",
+        "output_classes": "आउटपुट वर्ग",
+        "source": "स्रोत",
+        "crops_covered": "समर्थित फसलें",
+        "training_images": "प्रशिक्षण चित्र",
+        "disease_categories": "रोग श्रेणियाँ",
+        "configuration": "कॉन्फ़िगरेशन",
+        "confidence_threshold": "विश्वास सीमा (%)"
+        }
 }
 
 text = translations[language]
@@ -442,34 +464,55 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ─────────────────────────────────────────────────────────────────────────────
 
 with st.sidebar:
-    st.markdown("""
+    if language == "తెలుగు":
+        project_name = "అగ్రివిజన్ AI"
+        project_desc = "అధునాతన పంట వ్యాధి గుర్తింపు"
+
+    elif language == "हिन्दी":
+        project_name = "एग्रीविज़न AI"
+        project_desc = "उन्नत फसल रोग पहचान"
+
+    else:
+        project_name = "AgriVision AI"
+        project_desc = "Advanced Crop Disease Detection
+    st.markdown(f"""
     <div class="sidebar-section">
-        <div class="sidebar-title">📍 Project Information</div>
+        <div class="sidebar-title">📍 {text["project_info"]}</div>
         <p style="font-size: 13px; line-height: 1.5; margin: 0;">
-            <strong>AgriVision AI</strong><br>
-            Advanced Crop Disease Detection
+            <strong>{project_name}</strong><br>
+            {project_desc}
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    if language == "తెలుగు":
+        internship_title = "APSSDC సమ్మర్ ఇంటర్న్‌షిప్"
+        internship_desc = "వ్యవసాయ ML అప్లికేషన్"
+
+    elif language == "हिन्दी":
+        internship_title = "APSSDC समर इंटर्नशिप"
+        internship_desc = "कृषि ML एप्लिकेशन"
+
+    else:
+        internship_title = "APSSDC Summer Internship"
+        internship_desc = "Agricultural ML Application"
+    st.markdown(f"""
+    <div class="sidebar-section">
+        <div class="sidebar-title">🎓 {text["internship_details"]}</div>
+        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
+            <strong>{internship_title}</strong><br>
+            {internship_desc}
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
+    st.markdown(f"""
     <div class="sidebar-section">
-        <div class="sidebar-title">🎓 Internship Details</div>
+        <div class="sidebar-title">🔬 {text["model_architecture"]}</div>
         <p style="font-size: 13px; line-height: 1.5; margin: 0;">
-            <strong>APSSDC Summer Internship</strong><br>
-            Agricultural ML Application
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="sidebar-section">
-        <div class="sidebar-title">🔬 Model Architecture</div>
-        <p style="font-size: 13px; line-height: 1.5; margin: 0;">
-            <strong>Framework:</strong> PyTorch<br>
-            <strong>Base Model:</strong> EfficientNet-B0<br>
-            <strong>Input Size:</strong> 224 × 224px<br>
-            <strong>Output Classes:</strong> 9 diseases
+            <strong>{text["framework"]}:</strong> PyTorch<br>
+            <strong>{text["base_model"]}:</strong> EfficientNet-B0<br>
+            <strong>{text["input_size"]}:</strong> 224 × 224px<br>
+            <strong>{text["output_classes"]}:</strong> 9 diseases
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -478,21 +521,21 @@ with st.sidebar:
     <div class="sidebar-section">
         <div class="sidebar-title">📊 {text["dataset_metrics"]}</div>
         <p style="font-size: 13px; line-height: 1.5; margin: 0;">
-            <strong>Source:</strong> PlantVillage Dataset<br>
-            <strong>Crops Covered:</strong> Corn, Potato, Tomato<br>
-            <strong>Training Images:</strong> 9,991<br>
-            <strong>Disease Categories:</strong> 9
+            <strong>{text["source"]}:</strong> PlantVillage Dataset<br>
+            <strong>{text["crops_covered"]}:</strong> Corn, Potato, Tomato<br>
+            <strong>{text["training_images"]}:</strong> 9,991<br>
+            <strong>{text["disease_categories"]}:</strong> 9
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
+    st.markdown(f"""
     <div class="sidebar-section">
-        <div class="sidebar-title">⚙️ Configuration</div>
+        <div class="sidebar-title">⚙️ {text["configuration"]}</div>
     """, unsafe_allow_html=True)
 
     confidence_threshold = st.slider(
-        "Confidence Threshold (%)",
+        text["confidence_threshold"],
         min_value=50,
         max_value=100,
         value=75,
