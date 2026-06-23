@@ -156,7 +156,8 @@ translations = {
         "configuration": "कॉन्फ़िगरेशन",
         "confidence_threshold": "विश्वास सीमा (%)",
         "crop_names": "मक्का, आलू, टमाटर",
-        "top2_gap": "टॉप-2 गैप सीमा"
+        "top2_gap": "टॉप-2 गैप सीमा",
+        "diseases": "रोग"
         }
 }
 
