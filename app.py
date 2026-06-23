@@ -49,8 +49,16 @@ translations = {
         "top_predictions": "Top 5 Predictions",
         "confidence_text": "Detected with",
         "confidence_end": "% confidence",
-        "confidence_analysis": "Confidence Analysis"
-        
+        "confidence_analysis": "Confidence Analysis",
+        "upload_desc": "Upload a clear image of a crop leaf",
+        "supported_crops": "(Corn, Potato, or Tomato)",
+        "begin_analysis": "Upload an image to begin analysis",
+        "preview_placeholder": "Image preview will appear here",
+        "sample_guide": "Sample Image Guide",
+        "project_info": "PROJECT INFORMATION",
+        "internship_details": "INTERNSHIP DETAILS",
+        "model_architecture": "MODEL ARCHITECTURE",
+        "dataset_metrics": "DATASET METRICS"
     },
 
     "తెలుగు": {
@@ -67,7 +75,20 @@ translations = {
         "top_predictions": "టాప్ 5 అంచనాలు",
         "confidence_text": "",
         "confidence_end": "% నమ్మక స్థాయితో గుర్తించబడింది",
-        "confidence_analysis": "నమ్మక విశ్లేషణ"
+        "confidence_analysis": "నమ్మక విశ్లేషణ",
+        "upload_desc": "పంట ఆకు యొక్క స్పష్టమైన చిత్రాన్ని అప్లోడ్ చేయండి",
+        "supported_crops": "(మొక్కజొన్న, బంగాళాదుంప లేదా టమోటా)",
+
+        "begin_analysis": "విశ్లేషణ ప్రారంభించడానికి చిత్రాన్ని అప్లోడ్ చేయండి",
+
+        "preview_placeholder": "చిత్ర ప్రివ్యూ ఇక్కడ కనిపిస్తుంది",
+
+        "sample_guide": "నమూనా చిత్ర మార్గదర్శిని",
+
+        "project_info": "ప్రాజెక్ట్ సమాచారం",
+        "internship_details": "ఇంటర్న్‌షిప్ వివరాలు",
+        "model_architecture": "మోడల్ నిర్మాణం",
+        "dataset_metrics": "డేటాసెట్ వివరాలు"  
     },
 
     "हिन्दी": {
@@ -84,7 +105,20 @@ translations = {
         "top_predictions": "शीर्ष 5 भविष्यवाणियाँ",
         "confidence_text": "पहचाना गया",
         "confidence_end": "% विश्वास के साथ",
-        "confidence_analysis": "विश्वास विश्लेषण"
+        "confidence_analysis": "विश्वास विश्लेषण",
+        "upload_desc": "फसल की पत्ती की स्पष्ट छवि अपलोड करें",
+        "supported_crops": "(मक्का, आलू या टमाटर)",
+
+        "begin_analysis": "विश्लेषण शुरू करने के लिए छवि अपलोड करें",
+
+        "preview_placeholder": "छवि पूर्वावलोकन यहाँ दिखाई देगा",
+ 
+        "sample_guide": "नमूना छवि मार्गदर्शिका",
+
+        "project_info": "परियोजना जानकारी",
+        "internship_details": "इंटर्नशिप विवरण",
+        "model_architecture": "मॉडल संरचना",
+        "dataset_metrics": "डेटासेट विवरण"
     }
 }
 
@@ -608,17 +642,27 @@ col_left, col_right = st.columns([1, 1.2], gap="large")
 with col_left:
     st.markdown(f"### {text['preview']}")
 
-    st.markdown("""
+    st.markdown(f"""
     <div style="text-align: center; padding: 24px; font-size: 14px; line-height: 1.6; color: #555;">
-        Upload a clear image of a crop leaf<br>
-        (Corn, Potato, or Tomato)
+        {text["upload_desc"]}<br>
+        {text["supported_crops"]}
     </div>
     """, unsafe_allow_html=True)
+    
+       
+    
+    
 
     uploaded_file = st.file_uploader(
         text["upload"],
         type=["jpg","jpeg","png"],
-        help="Recommended: Clear, well-lit images at least 200×200 pixels"
+        help=(
+            "Recommended: Clear, well-lit images at least 200x200 pixels"
+            if language == "English"
+            else "కనీసం 200x200 పిక్సెల్స్ గల స్పష్టమైన చిత్రాన్ని ఉపయోగించండి"
+            if language == "తెలుగు"
+            else "कम से कम 200x200 पिक्सेल की स्पष्ट छवि का उपयोग करें"
+        )
     )
 
     # Image preview
